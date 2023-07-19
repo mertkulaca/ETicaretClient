@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, Spinner } from 'src/app/base/base.component';
 import { CreateProduct } from 'src/app/contract/create-product';
@@ -11,10 +12,12 @@ import { ProductService } from 'src/app/services/common/models/product.service';
   templateUrl: './create-products.component.html',
   styleUrls: ['./create-products.component.scss']
 })
-export class CreateProductsComponent extends BaseComponent  {
-  constructor(private productService:ProductService, base:NgxSpinnerService, private alertify:AlertifyService){
+export class CreateProductsComponent extends BaseComponent   {
+  constructor(private productService:ProductService, base:NgxSpinnerService, private alertify:AlertifyService,
+ ){
     super(base);
   }
+
 
   postProduct(name:HTMLInputElement, price:HTMLInputElement, stock:HTMLInputElement,e){
         e.preventDefault();
@@ -31,7 +34,20 @@ export class CreateProductsComponent extends BaseComponent  {
             postionType:PositionType.TopRight,
             messageType:MessageType.Success
           })
-        })
-  }
+      
+        },err =>{
+          this.alertify.message(err,{
+            delay:10,
+            postionType:PositionType.TopRight,
+            messageType : MessageType.Error
+          })
+        }
+        )}
+
+
+
+
+  
+
  
 }

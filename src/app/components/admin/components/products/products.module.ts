@@ -8,8 +8,12 @@ import { CreateProductsComponent } from './create-products/create-products.compo
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { ListProductsComponent } from './list-products/list-products.component';
+
 import {MatListModule} from '@angular/material/list';
+import { ListProductsComponent } from './list-products/list-products.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator'
 @NgModule({
   declarations: [
     ProductsComponent,
@@ -25,7 +29,8 @@ import {MatListModule} from '@angular/material/list';
     ),
     MatSidenavModule,MatFormFieldModule,
     MatSelectModule,MatInputModule,MatButtonModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule,MatTableModule,MatPaginatorModule
   ],exports:[
     ProductsComponent,
     
