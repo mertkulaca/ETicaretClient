@@ -1,0 +1,14 @@
+.product-container {
+    width: 97%;
+    height: 525px;
+    margin: 10px;
+    border: 1px solid #555;
+  }.product-sidebar {
+    width: 30%;
+  }
+
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }

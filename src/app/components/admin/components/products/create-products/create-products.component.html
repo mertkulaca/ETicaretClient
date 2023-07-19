@@ -1,0 +1,16 @@
+
+<form  class="ms-3 mt-3">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput #txtName>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input type="number" matInput #txtPrice min="0" value="0">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Stock</mat-label>
+        <input type="number" matInput #txtStock min="0" value="0"> 
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="postProduct(txtName,txtPrice,txtStock,$event)">Create</button>
+</form>
