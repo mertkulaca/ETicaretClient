@@ -14,11 +14,14 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator'
+import { DeleteDirective } from 'src/app/directives/admin/delete.directive';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     ProductsComponent,
     CreateProductsComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    DeleteDirective
   ],
   imports: [
     CommonModule,
@@ -30,7 +33,8 @@ import {MatPaginatorModule} from '@angular/material/paginator'
     MatSidenavModule,MatFormFieldModule,
     MatSelectModule,MatInputModule,MatButtonModule,
     MatListModule,
-    ReactiveFormsModule,MatTableModule,MatPaginatorModule
+    ReactiveFormsModule,MatTableModule,MatPaginatorModule,MatDialogModule 
+    
   ],exports:[
     ProductsComponent,
     
