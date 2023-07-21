@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, Spinner } from 'src/app/base/base.component';
@@ -18,6 +18,8 @@ export class CreateProductsComponent extends BaseComponent   {
     super(base);
   }
 
+  @Output() createdProduct : EventEmitter<CreateProduct> = new EventEmitter();
+
 
   postProduct(name:HTMLInputElement, price:HTMLInputElement, stock:HTMLInputElement,e){
         e.preventDefault();
@@ -34,7 +36,7 @@ export class CreateProductsComponent extends BaseComponent   {
             postionType:PositionType.TopRight,
             messageType:MessageType.Success
           })
-      
+          this.createdProduct.emit(product)
         },err =>{
           this.alertify.message(err,{
             delay:10,

@@ -6,6 +6,9 @@ import { ProductService } from 'src/app/services/common/models/product.service';
 import { BaseComponent, Spinner } from 'src/app/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AlertifyService, MessageType, PositionType } from 'src/app/services/admin/alertify.service';
+
+declare var $ : any;
+
 @Component({
   selector: 'app-list-products',
   templateUrl:'./list-products.component.html',
@@ -19,7 +22,7 @@ export class ListProductsComponent extends BaseComponent implements  OnInit , Af
     
   }
     
-  displayedColumns: string[] = ['Name', 'Stock', 'Price', 'createDate','updateDate'];
+  displayedColumns: string[] = ['Name', 'Stock', 'Price', 'createDate','updateDate','delete','edit'];
   dataSource :MatTableDataSource<ListProduct> =null
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -34,6 +37,11 @@ export class ListProductsComponent extends BaseComponent implements  OnInit , Af
    this.dataSource = new MatTableDataSource<ListProduct>(allProducts.products)
    this.paginator.length = allProducts.totalCount;
   
+ }
+ delete(id,event){
+    const button : HTMLButtonElement = event.srcElement;   
+    $(button.parentElement.parentElement.parentElement).fadeOut(1000)
+
  }
  async pageChanged(){
   await this.getProducts()
